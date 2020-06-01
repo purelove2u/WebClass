@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="request1.jsp" method="post">
+		<div>
+			<label for="userid">userid</label>
+			<input type="text" name="userid" id="userid"/>
+		</div>
+		<div>
+			<button>보내기</button>
+		</div>
+	</form>
+</body>
+</html>

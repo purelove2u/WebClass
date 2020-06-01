@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%
+	request.setCharacterEncoding("utf-8");
+	//info.jsp 에서 넘긴 값 가져오기
+	String userid = request.getParameter("userid");
+	out.print(userid);
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>
