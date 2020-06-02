@@ -1,0 +1,10 @@
+package scope;
+
+public class MemberDAO {	// ~DAO(Data Access Object
+	// JDBC (Java DataBase Connection)
+	// 1. 클래스 드라이버 로드
+	// 2. DB서버와 커넥션(DB서버 IP주소 / userid / userpw)
+	// 3. Statement 객체 생성
+	
+
+}
