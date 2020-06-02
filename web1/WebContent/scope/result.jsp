@@ -3,7 +3,8 @@
     pageEncoding="UTF-8"%>
 <%
 	//session 영역에 있는 값 가져오기
-	MemberVO vo = (MemberVO)session.getAttribute("vo");
+	//MemberVO vo = (MemberVO)session.getAttribute("vo");
+	MemberVO vo = (MemberVO)request.getAttribute("vo");
 %>
 <!DOCTYPE html>
 <html>

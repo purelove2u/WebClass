@@ -1,6 +1,8 @@
 package scope;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,10 +24,15 @@ public class ScopeServlet extends HttpServlet {
 		MemberVO vo = dao.getUser(Integer.parseInt(no));
 		
 		//VO를 다른 jsp에 넘겨서 출력을 하고 싶다면?
-		HttpSession session = request.getSession();
-		session.setAttribute("vo", vo);
-		response.sendRedirect("scope/result.jsp");
+//		HttpSession session = request.getSession();
+//		session.setAttribute("vo", vo);
 		
+		request.setAttribute("vo", vo);
+		
+//		response.sendRedirect("scope/result.jsp");
+
+		RequestDispatcher rd = request.getRequestDispatcher("scope/result.jsp");
+		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
