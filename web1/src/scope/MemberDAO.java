@@ -5,20 +5,21 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
-public class MemberDAO {	// ~DAO(Data Access Object
+public class MemberDAO { // ~DAO(Data Access Object : DBì‘ì—… ë‹´ë‹¹)
 	// JDBC (Java DataBase Connection)
-	// 1. Å¬·¡½º µå¶óÀÌ¹ö ·Îµå
-	// 2. DB¼­¹ö¿Í Ä¿³Ø¼Ç(DB¼­¹ö IPÁÖ¼Ò / userid / userpw)
-	// 3. Statement °´Ã¼ »ı¼º => sql ±¸¹® Àü¼ÛÇÏ±â ÇÊ¿ä
-	// 4. sql Ã³¸® °á°ú ¹Ş±â(int - update/delete/insert, ResultSet-select)
-	// 5. sql Ã³¸® °á°ú¿¡ µû¶ó ÀÚ¹Ù ÄÚµå ½ÇÇà
+	// â‘  í´ë˜ìŠ¤ ë“œë¼ì´ë²„ ë¡œë“œ
+	// â‘¡ DB ì„œë²„ì™€ ì»¤ë„¥ì…˜(DBì„œë²„ IPì£¼ì†Œ/userid /userpwd)
+	// â‘¢ Statement ê°ì²´ ìƒì„± => sql êµ¬ë¬¸ ì „ì†¡í•˜ê¸° ìœ„í•´ í•„ìš”
+	// â‘£ sql ì²˜ë¦¬ ê²°ê³¼ë¥¼ ë°›ê¸°(int - update/delete/insert, ResultSet-select)
+	// â‘¤ sql ì²˜ë¦¬ ê²°ê³¼ì— ë”°ë¼ ìë°” ì½”ë“œ ì‹¤í–‰
 	
 	static {
 		try {
-			//oracle.jdbc.driver.OracleDriver µµ °¡´É
+			//oracle.jdbc.driver.OracleDriver
 			Class.forName("oracle.jdbc.OracleDriver");
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException e) {			
 			e.printStackTrace();
 		}
 	}
@@ -29,22 +30,18 @@ public class MemberDAO {	// ~DAO(Data Access Object
 			String user="javadb";
 			String password="12345";
 			return DriverManager.getConnection(url, user, password);
-			
-		} catch (SQLException e) {
+		} catch (SQLException e) {			
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
 	//selectOne
-	public MemberVO getUser(int no) {
-		
-		String sql = "select * from memberTBL where no =?";
-
+	public MemberVO getUser(int no) {		
+		String sql="select * from memberTBL where no=?";
 		MemberVO vo = null;
-		
-		try (Connection con = getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql);){
+		try(Connection con = getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql);) {
 				pstmt.setInt(1, no);
 				ResultSet rs = pstmt.executeQuery();
 				if(rs.next()) {
@@ -54,11 +51,56 @@ public class MemberDAO {	// ~DAO(Data Access Object
 					vo.setAge(rs.getInt(3));
 					vo.setGender(rs.getString(4));
 				}
-			
-		} catch (SQLException e) {
+		} catch (SQLException e) {			
 			e.printStackTrace();
 		}
 		return vo;
 	}
-
+	
+	public int insert(String name) {
+		String sql="select * from memberTBL where name = '"+name+"'";
+		
+		// select * from memberTBL where name = '' or 'a'='a'";
+		// ì´ë ‡ê²Œ sql êµ¬ë¬¸ì´ ì²˜ë¦¬ë˜ê¸° ë•Œë¬¸ì— í•­ìƒ ì°¸ì´ ë‚˜ì˜¤ê²Œ ë˜ê³ 
+		// ë¦¬í„´ ê°’ìœ¼ë¡œ 1ì´ í•­ìƒ ì „ì†¡ë˜ëŠ” ìƒí™©
+		
+		int result=0;
+		try(Connection con = getConnection();
+				Statement pstmt=con.createStatement()) {
+			
+				ResultSet rs = pstmt.executeQuery(sql);
+				if(rs.next()) {					
+					result=1;
+				}
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public int insert2(String name) {
+		String sql="select * from memberTBL where name = ?";
+		
+		int result=0;
+		try(Connection con = getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)) {
+				pstmt.setString(1, name);
+				ResultSet rs = pstmt.executeQuery();
+				if(rs.next()) {					
+					result=1;
+				}
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
+
+
+
+
+
+
+
+
+
