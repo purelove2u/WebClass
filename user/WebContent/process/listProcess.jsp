@@ -7,7 +7,7 @@
     
 <%
 //DB연결
-	String url = "jdbc:oracle:thin:@192.168.0.10:1521:orcl";
+	String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 	String user = "javadb";
 	String password = "12345";
 	Connection con = DriverManager.getConnection(url, user, password);

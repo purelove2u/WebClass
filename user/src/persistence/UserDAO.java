@@ -21,7 +21,7 @@ public class UserDAO {
 	}
 	
 	public static Connection getConnection() {
-		String url = "jdbc:oracle:thin:@192.168.0.10:1521:orcl";
+		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 		String user = "javadb";
 		String password = "12345";
 		try {
@@ -45,12 +45,12 @@ public class UserDAO {
 			pstmt.setString(3, vo.getAddr());
 			pstmt.setString(4, vo.getMobile());
 			
-			//½ÇÇà
+			//ì‹¤í–‰
 			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally { // ¹«Á¶°Ç ½ÇÇàÇÏ´Â ±¸¹® //º¸Åë ÀÚ¿øÀ» ÇØÁ¦ÇÏ´Â ÀÛ¾÷
+		} finally { // ë¬´ì¡°ê±´ ì‹¤í–‰í•˜ëŠ” êµ¬ë¬¸ // ë³´í†µ ìì›ì„ í•´ì œí•˜ëŠ” ì‘ì—…
 			try {
 				if(pstmt!=null) pstmt.close();
 				if(con!=null) con.close();
@@ -61,7 +61,7 @@ public class UserDAO {
 		return result;
 	}
 	
-	//ÀüÃ¼ User °¡Á®¿À±â
+	//ì „ì²´ Userê°€ì ¸ì˜¤ê¸°
 	public List<UserVO> getList() {
 		List<UserVO> list = new ArrayList<UserVO>();
 		String sql = "select * from userTBL";
@@ -82,6 +82,23 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	// ì‚­ì œ
+	// delete from userTBL where no=? and username = ?
+	public int userDelete(int no, String username) {
+		int result = 0;
+		String sql = "delete from userTBL where no = ? and username = ?";
+		try (Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+				pstmt.setInt(1, no);
+				pstmt.setString(2, username);
+				
+				result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }
 

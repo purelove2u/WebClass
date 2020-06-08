@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>addProcess - Model1</title>
 </head>
 <body>
 	<%
@@ -24,7 +24,7 @@
 		//DB 처리하기 -User 추가
 		//드라이버 로드
 		Class.forName("oracle.jdbc.OracleDriver");
-		String url = "jdbc:oracle:thin:@192.168.0.10:1521:orcl";
+		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 		String user = "javadb";
 		String password = "12345";
 		Connection con = DriverManager.getConnection(url, user, password);
