@@ -51,7 +51,8 @@
 								<th scope="col">작 가</th>
 								<th scope="col">가 격</th>
 							</thead>
-							<tbody><%--전체 도서 목록이 보여지는 곳 --%>		
+							<tbody>
+								<%--전체 도서 목록이 보여지는 곳 --%>		
 								<%for(BookVO vo : list) {%>
 									<tr>
 										<td><%=vo.getCode() %></td>

@@ -1,6 +1,8 @@
 INDEX VERSION 1.131
 D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\989430200.index
 \web1\src
+D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2103445422.index
+\book\src
 D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2515900488.index
 \web1\src
 D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4135720641.index
