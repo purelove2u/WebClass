@@ -31,8 +31,4 @@
 	response.sendRedirect("../view/loginForm.jsp");
 	
 	
-	
-	
-	
-	
 %>

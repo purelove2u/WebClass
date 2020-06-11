@@ -5,6 +5,8 @@ D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsear
 \web1\src
 D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2103445422.index
 \book\src
+D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3424695895.index
+\pattern\src
 D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2515900488.index
 \web1\src
 D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4135720641.index
@@ -25,6 +27,8 @@ D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsear
 \user\src
 D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3303232331.index
 \member\src
+D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\388413700.index
+\pattern\src
 D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2683480279.index
 \user\src
 D:\SourceCode\WebClassSource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2473146045.index
