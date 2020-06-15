@@ -6,4 +6,5 @@
   <module moduleId="org.eclipse.jst.jee.server:user" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:web1" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:pattern" serverId="Tomcat v9.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:member_model2" serverId="Tomcat v9.0 Server at localhost"/>
 </modules>

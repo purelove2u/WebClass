@@ -16,12 +16,6 @@ public class ActionFactory {
 	public Action action(String cmd) {
 		if(cmd.equals("/insert.do")) {
 			action = new InsertAction("result.jsp");
-		}else if(cmd.equals("/delete.do")) {
-			
-		}else if(cmd.equals("/update.do")) {
-			
-		}else if(cmd.equals("/select.do")) {
-			
 		}
 		return action;
 	}
