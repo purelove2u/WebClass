@@ -3,8 +3,9 @@
 <%@page import="persistence.BookDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	List<BookVO> list = (List<BookVO>)request.getAttribute("list");
+	//List<BookVO> list = (List<BookVO>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>
@@ -51,7 +52,7 @@
 								<th scope="col">가 격</th>
 							</thead>
 							<tbody>
-								<%--전체 도서 목록이 보여지는 곳 --%>		
+								<%--전체 도서 목록이 보여지는 곳 		
 								<%for(BookVO vo : list) {%>
 									<tr>
 										<td><%=vo.getCode() %></td>
@@ -59,7 +60,15 @@
 										<td><%=vo.getWriter() %></td>
 										<td><%=vo.getPrice() %></td>
 									</tr>
-								<%} %>
+								<%} %> --%>
+								<c:forEach var="vo" items="${list}">
+									<tr>
+										<td>${vo.code}</td>
+										<td>${vo.title}</td>
+										<td>${vo.writer}</td>
+										<td>${vo.price}</td>									
+									</tr>
+								</c:forEach>
 							</tbody>												
 						</table>
 				     </div>

@@ -58,5 +58,7 @@
 </div>
 
 <%-- 사용자 validate 코드 삽입하기 --%>
-<script src=""></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+<script src="../js/join.js"></script>
 <%@include file="../layout/footer.jsp" %>
