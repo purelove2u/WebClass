@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@page import="domain.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -33,16 +34,17 @@
 				<div class="form-group  row">
 					<label for="filename" class="col-sm-2 col-form-label">파일첨부</label>
 					<div class="col-sm-10">
-						<a href="view/download.jsp?fileName=${vo.attach}">
+						<%-- <a href="view/download.jsp?fileName=${vo.attach}"> --%>
 							<%
 								BoardVO board = (BoardVO)request.getAttribute("vo");
 								String attachFullName = board.getAttach();
 								if(attachFullName != null){
 								    String attachName = attachFullName.substring(attachFullName.indexOf("_")+1);
+								    out.print("<a href='view/download.jsp?fileName="+URLEncoder.encode(attachFullName, "utf-8") + "'>");
 								    out.print(attachName);
 								}
 							%>
-						</a>
+						<!-- </a> -->
 					</div>
 				</div>
 				<div style="height:10px"></div>
