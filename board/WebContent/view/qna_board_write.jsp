@@ -75,7 +75,7 @@ pageEncoding="UTF-8"%> <%@include file="../include/header.jsp"%>
           <div class="col-sm-10">
             <input type="file" name="attach" id="file" />
             <small class="text-muted" id="file">(파일크기 : 2MB)</small>
-            <small id="file" class="text-info"></small>
+<!--             <small id="file" class="text-info"></small> -->
           </div>
         </div>
         <div style="height:20px"></div>

@@ -81,7 +81,7 @@ public class BoardDAO {
     // bno 에 해당하는 게시물 가져오기
     // 작성자, 제목, 내용, 파일첨부
     public BoardVO getRow(int bno) {
-	String sql = "select name, title, content, attach from board where bno = ?";
+	String sql = "select bno, name, title, content, attach from board where bno = ?";
 	BoardVO vo = null;
 	try (Connection con = getConnection();
 		PreparedStatement pstmt = con.prepareStatement(sql)){
@@ -89,16 +89,52 @@ public class BoardDAO {
 	    ResultSet rs = pstmt.executeQuery();
 	    if (rs.next()) {		
 		vo = new BoardVO();
-		vo.setName(rs.getString(1));
-		vo.setTitle(rs.getString(2));
-    	    	vo.setContent(rs.getString(3));
-    	    	vo.setAttach(rs.getString(4));
+		vo.setBno(rs.getInt(1));
+		vo.setName(rs.getString(2));
+		vo.setTitle(rs.getString(3));
+    	    	vo.setContent(rs.getString(4));
+    	    	vo.setAttach(rs.getString(5));
 	    }
 	    
 	} catch (Exception e) {
 	    e.printStackTrace();
 	}
 	return vo;
+    }
+    
+    
+    // 글 수정
+    public int updateRow(BoardVO vo) {
+	int result = 0;
+	if(vo.getAttach() == null) {
+	    String sql = "update board set title=?, content=? where bno=? and password=?";	    
+	    try (Connection con = getConnection();
+		    PreparedStatement pstmt = con.prepareStatement(sql)){
+		pstmt.setString(1, vo.getTitle());
+		pstmt.setString(2, vo.getContent());
+		pstmt.setInt(3, vo.getBno());
+		pstmt.setString(4, vo.getPassword());
+		
+		result = pstmt.executeUpdate();
+	    } catch (Exception e) {
+		e.printStackTrace();
+	    }
+	}else {
+	    String sql = "update board set title=?, content=?, attach=? where bno=? and password=?";	    
+	    try (Connection con = getConnection();
+		    PreparedStatement pstmt = con.prepareStatement(sql)){
+		pstmt.setString(1, vo.getTitle());
+		pstmt.setString(2, vo.getContent());
+		pstmt.setString(3, vo.getAttach());
+		pstmt.setInt(4, vo.getBno());
+		pstmt.setString(5, vo.getPassword());
+
+		result = pstmt.executeUpdate();
+	    } catch (Exception e) {
+		e.printStackTrace();
+	    }   
+	}
+	return result;
     }
 }
 
