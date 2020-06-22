@@ -74,6 +74,14 @@ $(function(){
 		formObj.attr("action","modify.do");
 		formObj.submit();
 	})
+	$("#delete").click(function(){
+		formObj.attr("action","view/qna_board_pwdCheck.jsp");
+		formObj.submit();// bno를 넘겨야되기 때문에 location.href(가 제일 간단하지만)를 쓰지 않음.
+	})
+	$("#reply").click(function(){
+		formObj.attr("action","replyView.do");
+		formObj.submit();// bno를 넘겨야되기 때문에 location.href(가 제일 간단하지만)를 쓰지 않음.
+	})
 })
 </script>
 <%@include file="../include/footer.jsp"%>
