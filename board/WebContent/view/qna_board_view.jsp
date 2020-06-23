@@ -3,7 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- Main content -->
 <section class="content">
 	<div class="box box-primary">
@@ -33,16 +32,16 @@
 				</div>
 				<div class="form-group  row">
 					<label for="filename" class="col-sm-2 col-form-label">파일첨부</label>
-					<div class="col-sm-10">
-						<%-- <a href="view/download.jsp?fileName=${vo.attach}"> --%>
+					<div class="col-sm-10">						
+						<!-- <a href="view/download.jsp?fileName=${vo.attach}"> -->
 							<%
 								BoardVO board = (BoardVO)request.getAttribute("vo");
 								String attachFullName = board.getAttach();
-								if(attachFullName != null){
-								    String attachName = attachFullName.substring(attachFullName.indexOf("_")+1);
-								    out.print("<a href='view/download.jsp?fileName="+URLEncoder.encode(attachFullName, "utf-8") + "'>");
-								    out.print(attachName);
-								    out.print("</a>");
+								if(attachFullName!=null){
+									String attachName = attachFullName.substring(attachFullName.indexOf("_")+1);
+									out.print("<a href='view/download.jsp?fileName="+URLEncoder.encode(attachFullName,"utf-8")+"'>");
+									out.print(attachName);
+									out.print("</a>");
 								}
 							%>
 						<!-- </a> -->
@@ -56,33 +55,54 @@
 					<button type="button" class="btn btn-primary" id="list">목록보기</button>
 				</div>
 				<div style="height:20px"></div>
-			</div>
+			</div>			
 		</form>
 	</div>
 </section>
 <form method="post" role="form">
 	<input type="hidden" name="bno" value="${vo.bno}"/>
+	<input type="hidden" name="page" value="${search.page}"/>
+	<input type="hidden" name="criteria" value="${search.criteria}"/>
+	<input type="hidden" name="keyword" value="${search.keyword}"/>
 </form>
+
 <script>
 $(function(){
+	
 	let formObj = $("form[role='form']");
 	
+	
 	$("#list").click(function(){
-		location.href="list.do";
+		formObj.attr("action","list.do");
+		formObj.submit();
 	})
 	$("#modify").click(function(){
 		formObj.attr("action","modify.do");
 		formObj.submit();
 	})
-	$("#delete").click(function(){
-		formObj.attr("action","view/qna_board_pwdCheck.jsp");
-		formObj.submit();// bno를 넘겨야되기 때문에 location.href(가 제일 간단하지만)를 쓰지 않음.
-	})
 	$("#reply").click(function(){
 		formObj.attr("action","replyView.do");
-		formObj.submit();// bno를 넘겨야되기 때문에 location.href(가 제일 간단하지만)를 쓰지 않음.
+		formObj.submit();
 	})
+	$("#delete").click(function(){
+		formObj.attr("action","view/qna_board_pwdCheck.jsp");
+		formObj.submit();
+	})
+	
 })
 </script>
 <%@include file="../include/footer.jsp"%>
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

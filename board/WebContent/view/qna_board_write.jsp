@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@include file="../include/header.jsp"%>
-<style>
-	.text-info{
-		color:red;
-		font-size:0.8rem
-	}
-	span.error{
-		color:red;
-		font-size:0.8rem;
-	}
+pageEncoding="UTF-8"%> 
+<%@include file="../include/header.jsp"%>
+<style>  
+  span.error {
+    color: red;
+    font-size: 0.8rem;
+  }
 </style>
 <!-- Main content -->
 <section class="content">
@@ -29,11 +26,11 @@ pageEncoding="UTF-8"%> <%@include file="../include/header.jsp"%>
               size="10"
               class="form-control"
               maxlength="10"
-            />
-          </div>
+            />            
+          </div>          
         </div>
         <div class="form-group row">
-          <label for="title" class="col-sm-2 col-form-label">제목</label>
+          <label for="title" class="col-sm-2 col-form-label" id="title">제목</label>
           <div class="col-sm-10">
             <input
               type="text"
@@ -43,9 +40,9 @@ pageEncoding="UTF-8"%> <%@include file="../include/header.jsp"%>
               class="form-control"
               maxlength="100"
             />
-          </div>
+          </div>         
         </div>
-        <div class="form-group row">
+        <div class="form-group row" >
           <label for="content" class="col-sm-2 col-form-label">내용</label>
           <div class="col-sm-10">
             <textarea
@@ -55,6 +52,9 @@ pageEncoding="UTF-8"%> <%@include file="../include/header.jsp"%>
               class="form-control"
               rows="15"
             ></textarea>
+          </div>
+          <div>
+          	<small id="content" class="text-info"></small>
           </div>
         </div>
         <div class="form-group row">
@@ -68,14 +68,14 @@ pageEncoding="UTF-8"%> <%@include file="../include/header.jsp"%>
               size="10"
               maxlength="10"
             />
-          </div>
+          </div>         
         </div>
         <div class="form-group row">
           <label for="file" class="col-sm-2 col-form-label">파일첨부</label>
           <div class="col-sm-10">
             <input type="file" name="attach" id="file" />
-            <small class="text-muted" id="file">(파일크기 : 2MB)</small>
-<!--             <small id="file" class="text-info"></small> -->
+            <small class="text-muted">(파일크기 : 2MB)</small>
+            <small id="file" class="text-info"></small>
           </div>
         </div>
         <div style="height:20px"></div>
@@ -92,10 +92,21 @@ pageEncoding="UTF-8"%> <%@include file="../include/header.jsp"%>
   </div>
   <!-- /.box -->
 </section>
-<!-- jQuery -->		
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- jQuery-validation plugin -->
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.js"></script>
+<!-- jquery -->	
+
+<!-- jquery-validation plugin -->
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/additional-methods.js"></script>
 <script src="../js/write.js"></script>
 <%@include file="../include/footer.jsp"%>
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@
 				<div class="form-group row">
 					<label for="title" class="col-sm-2 col-form-label">제목</label>
 					<div class="col-sm-10">
-						<input type="text" name="title" size="50" class="form-control" maxlength='100' value="Re : ${vo.title}" >
+						<input type="text" name="title" size="50" class="form-control" maxlength='100'  value="Re : ${vo.title}">
 					</div>
 				</div>
 				<div class="form-group row">
@@ -50,7 +50,19 @@
 			<input type="hidden" name="re_ref" value="${vo.re_ref}"/>
 			<input type="hidden" name="re_lev" value="${vo.re_lev}"/>
 			<input type="hidden" name="re_seq" value="${vo.re_seq}"/>
+			
+			<input type="hidden" name="page" value="${search.page}"/>
+			<input type="hidden" name="criteria" value="${search.criteria}"/>
+			<input type="hidden" name="keyword" value="${search.keyword}"/>
 		</form>
 	</div>
 </section>
 <%@include file="../include/footer.jsp"%>
+
+
+
+
+
+
+
+

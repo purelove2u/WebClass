@@ -8,6 +8,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class ActionForward {
-    private String path;
-    private boolean redirect;
+	private String path;
+	private boolean redirect;
 }
