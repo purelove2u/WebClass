@@ -14,15 +14,17 @@ public class MemberActionFactory {
 	
 	public Action action(String cmd) {
 		if(cmd.equals("/login.do")) {
-			action = new LoginACtion("view/loginForm.jsp");
+		    action = new LoginACtion("view/loginForm.jsp");
 		}else if(cmd.equals("/logout.do")) {
-			action = new LogoutAction("index.jsp");
+		    action = new LogoutAction("index.jsp");
 		}else if(cmd.equals("/modify.do")) {
-			action = new ModifyAction("view/loginForm.jsp");
+		    action = new ModifyAction("view/loginForm.jsp");
 		}else if(cmd.equals("/leave.do")) {
-			action = new LeaveAction("index.jsp");
+		    action = new LeaveAction("index.jsp");
 		}else if(cmd.equals("/join.do")) {
-			action = new JoinAction("view/loginForm.jsp");
+		    action = new JoinAction("view/loginForm.jsp");
+		}else if(cmd.equals("/checkId.do")) {
+		    action = new CheckAction("view/checkId.jsp");
 		}
 		
 		return action;

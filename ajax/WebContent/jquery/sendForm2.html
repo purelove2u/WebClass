@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form>
+		<div>
+			<label for="id">아이디</label>
+			<input type="text" id="id" name="id"/>
+		</div>
+		<div>
+			<label for="name">이름</label>
+			<input type="text" id="name" name="name"/>
+		</div>		
+	</form>
+	<div>
+		<button id="get" >GET</button>
+		<button id="post">POST</button>
+	</div>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(function(){	
+	// ajax 방식으로 서버로 form 보내기
+	$("#get").click(function(){
+		let formData = $("form").serialize();
+		console.log(formData);
+		$.ajax({
+			url : "send.jsp",
+			data:formData,
+			success:function(data){
+				if($.trim(data)==='true'){
+					alert("성공");
+				}else{
+					alert('입력값을 확인해 주세요');
+				}
+			}
+		})	
+	})
+	$("#post").click(function(){
+		let formData = $("form").serializeArray();
+		console.log(formData);
+		$.ajax({
+			url : "send.jsp",
+			type: 'post',
+			data:formData,
+			success:function(data){
+				if($.trim(data)==='true'){
+					alert("성공");
+				}else{
+					alert('입력값을 확인해 주세요');
+				}
+			}
+		})	
+	})
+})
+
+
+//aJax 방식으로 서버로 form 보내기
+$("#get").click(function() {	//function() : 익명함수(일회용)
+			let formData = $("form").serialize();
+			console.log(formData);
+			$.ajax({
+				url : "send.jsp",
+				data:{
+					id:id,
+					name:name
+				},
+				success:function(data) {	// data : 서버가 데이타를 보내주면 응답 해줌
+					if($.trim(data) ==='true') {
+						alert("성공");
+					} else {
+						alert("입력값 확인");
+					}
+				}
+			})
+		});
+		
+		$("#post").click(function() {
+			let formData = $("form").serializeArray();
+			console.log(formData);
+			$.ajax({
+				url:"send.jsp",
+				type:'post',
+				data: {
+					id:id,
+					name:name
+				},
+				success:function(data) {	// data : 서버가 데이타를 보내주면 응답 해줌
+					if ($.trim(data) === 'true') {
+						alert("성공");
+					} else {						
+						alert("입력값 확인");
+					}
+				}
+			})
+		});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

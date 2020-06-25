@@ -14,7 +14,16 @@ $(function(){
 		rules:{
 			userid:{
 				required:true,
-				validID:true
+				validID:true,
+				remote : {
+					url : "../checkId.do",
+					type : "post",
+					data : {
+						userid : function(){
+							return $('#userid').val();
+						}
+					}
+				}
 			},
 			password:{
 				required:true,
@@ -40,7 +49,8 @@ $(function(){
 		
 		messages:{
 			userid:{
-				required:"(필수항목)"
+				required:"(필수항목)",
+				remote : "이 아이디는 사용중입니다."
 			},
 			password:{
 				required:"(필수항목)"
